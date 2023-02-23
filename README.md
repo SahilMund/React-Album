@@ -1,6 +1,6 @@
 <h1>React - Album</h1>
 
-<p>Implemented an album web application with react, react-hooks and context API to perform CRUD operation with Jsonplaceholder API.</p>
+<p>Implemented an album web application with react, react-hooks and context API to perform CRUD operation with json placeholder API.</p>
 
 <h2>General Information</h2>
 <hr>
@@ -50,4 +50,38 @@ npm install
 #### Step 3 :-
 ```
 npm start
+```
+
+
+## Folder Structure:-
+```
+.gitignore
+README.md
+package-lock.json
+package.json
+public
+   |-- favicon.ico
+   |-- index.html
+   |-- logo192.png
+   |-- logo512.png
+   |-- manifest.json
+   |-- robots.txt
+src
+   |-- App.css
+   |-- App.js
+   |-- api
+   |   |-- index.js
+   |-- components
+   |   |-- Album.js
+   |   |-- AlbumList.js
+   |   |-- CreateAlbumItem.js
+   |   |-- Loader.js
+   |   |-- index.js
+   |-- hooks
+   |   |-- PostHook.js
+   |-- index.js
+   |-- providers
+   |   |-- PostProvider.js
+   |-- utils
+   |   |-- constant.js
 ```
