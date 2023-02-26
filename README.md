@@ -12,6 +12,10 @@ API Guide :- https://jsonplaceholder.typicode.com/guide/
 
 ```
 
+### Deployed URL :-
+
+https://sahilmund.github.io/React-Album/
+
 ### Features :-
 ```
 1. Add an album by making a POST call to the API and save the album in react state. (This will be a dummy request).
