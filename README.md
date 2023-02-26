@@ -19,7 +19,7 @@ API Guide :- https://jsonplaceholder.typicode.com/guide/
 3. Update the album by making a PUT call to the API.(Again this is a dummy call).
 4. Delete an album by making a DELETE call to the above url. (Again this is a dummy call).
 
-NOTE : To call the API, refer API guide.
+NOTE : To use the API, refer API guide.
 ```
 
 
@@ -39,15 +39,18 @@ NOTE : To call the API, refer API guide.
 
 ## How To Use :-
 
-####    Step 1 :- 
- Download the zip file or clone the repo
-####    Step 2 :- 
-In terminal type :
+####    Step 1 :-  Clone the repo
+ 
+ ```
+git clone https://github.com/SahilMund/React-Album.git
+ ```
+####    Step 2 :- To install the dependencies
+
 ```
 npm install
 ```
 
-#### Step 3 :-
+#### Step 3 :- To run the application
 ```
 npm start
 ```
@@ -85,3 +88,52 @@ src
    |-- utils
    |   |-- constant.js
 ```
+
+
+## <u> Steps to deploy your react project on Github </u> :-
+
+###  Step 1 :- Create a repo in github and add your project to that repo :-
+
+ ```
+ git init
+ git add .
+ git commit -m "first commit"
+ git branch -M master
+ git remote add origin <your-app-origin>
+ git push -u origin master
+ ```
+
+###  Step 2 :-  Add homepage script to package.json
+
+```
+"homepage": "https://<myusername>.github.io/<my-github-repo-name>",
+```
+### Step 3 :- Install gh-pages
+```
+nmp :-
+    npm install --save gh-pages
+(or)
+yarn :-
+    yarn add gh-pages
+```
+
+### step 4 :-    Add the following scripts in your package.json:
+```
+"scripts": {
+   "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    }
+```
+
+### step 5 :-  Deploy the site , By running npm run deploy , it will automatically create a new gh-pages branch
+```
+npm run deploy
+```
+
+
+### Finally, make sure GitHub Pages option in your GitHub project settings is set to use the gh-pages branch:
+
+<p> (It may sometimes sets by default so no need to do it every time) </p>
+
+<img alt="" src="https://i.imgur.com/HUjEr9l.png" width="50%" height="50%">
+

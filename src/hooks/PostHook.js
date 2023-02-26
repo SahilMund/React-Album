@@ -13,7 +13,7 @@ export const usePosts = () => {
   return useContext(PostsContext);
 };
 
-// Creating a custom hooks to implement CRUD functionality
+// Creating a custom hook to implement CRUD functionality
 export const useProvidePosts = () => {
   // Posts will store all the albums in an array format
   const [posts, setPosts] = useState([]);
@@ -32,6 +32,8 @@ export const useProvidePosts = () => {
     fetchPosts();
   }, []);
 
+  // ------------------------------Add a new album-------------------------
+
   //   To add new post in the list
   const addPost = async ({ userId, id, title }) => {
     const response = await addAlbumPosts(userId, id, title);
@@ -48,27 +50,30 @@ export const useProvidePosts = () => {
     throw new Error(response.message);
   };
 
+  // ------------Edit an album------------------
+
   // To handle edit feature
   const EditPost = async (title) => {
     const { id, userId } = editedData;
     const response = await EditAlbumPost(id, userId, title);
 
-    console.log(response);
-
     if (!response.success) {
       throw new Error(response.message);
     }
+
     // Create a new array with the updated value, then set its value to our posts array
     const newAlbumPost = posts.map((item) => {
-      if (item.id === response.data.id) {
-        item.title = response.data.title;
+      if (item.id === id) {
+        item.title = title;
       }
       return item;
     });
 
+    // update the posts array
     setPosts(newAlbumPost);
   };
 
+  //------------------------Delete an Item -------------------------
   // To handle delete of items
   const DeletePost = async (id) => {
     const response = await DeletePostById(id);
@@ -77,6 +82,7 @@ export const useProvidePosts = () => {
       // filtering out the value which needs to be removed from our posts array
       const newItemList = [...posts].filter((post) => post.id !== id);
 
+      //updating posts
       setPosts(newItemList);
       return;
     }

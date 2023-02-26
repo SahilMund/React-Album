@@ -5,10 +5,11 @@ import { usePosts } from "../hooks/PostHook";
 import Loader from './Loader';
 
 const Album = () => {
-  // context is a reference to access all the context in the context API from this component
+  // context is a reference to access all the contexts of the context API from this component
   const context = usePosts();
 
   if(context.data.length === 0){
+    // show loader
     return <Loader/>;
   }
   return (

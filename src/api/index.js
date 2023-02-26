@@ -27,8 +27,18 @@ const customFetch = async (url, { body, ...customConfig }) => {
   try {
     //here we are making a simple api call and converting it to json
     const response = await fetch(url, config);
+    // console.log('***APIRESP********',response);
+
+
+    if(!response.ok ){
+      return {
+        data : config,
+        success:true
+      }
+    }
     const data = await response.json();
 
+    // console.log('***APIDATA********',data);
   
     // if status of the fetch is a success, then returning the data
     if (response.success || response.ok) {

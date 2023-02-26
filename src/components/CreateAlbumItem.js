@@ -8,9 +8,10 @@ const CreateAlbumItem = () => {
     context.editable ? context.editedData.title : ""
   );
 
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const inputRef = useRef(null);
 
+  //  to focus the cursor to the input text box
   useEffect(() => {
     inputRef.current.focus();
   });
@@ -41,7 +42,7 @@ const CreateAlbumItem = () => {
     return;
   };
 
-  const handleUpdate = async(e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
     // Getting the current value
     const title = inputRef.current.value;
@@ -50,6 +51,7 @@ const CreateAlbumItem = () => {
     // calling the edit function to implement it and setting the editable to false to show the add input
     await context.EditPost(title);
     await context.setEditable(false);
+    
     setLoading(false);
     setInput("");
     return;
@@ -63,7 +65,6 @@ const CreateAlbumItem = () => {
     return;
   };
 
-
   return (
     <form className="album-form">
       {context.editable ? (
@@ -76,12 +77,18 @@ const CreateAlbumItem = () => {
             ref={inputRef}
             className="album-input edit"
           />
-          <button onClick={handleUpdate} className="album-button edit" disabled={loading}>
-            {loading ? "Updating......":"Update"}
+          <button
+            onClick={handleUpdate}
+            className="album-button edit"
+            disabled={loading}
+          >
+            {loading ? "Updating......" : "Update"}
           </button>
-         {!loading && <button onClick={handleCancel} className="album-button cancel">
-            Cancel
-          </button>}
+          {!loading && (
+            <button onClick={handleCancel} className="album-button cancel">
+              Cancel
+            </button>
+          )}
         </>
       ) : (
         <>
@@ -92,10 +99,10 @@ const CreateAlbumItem = () => {
             name="title"
             className="album-input"
             ref={inputRef}
-            disabled ={loading}
+            disabled={loading}
           />
           <button onClick={handleSubmit} className="album-button">
-           {loading? "Adding....... " : "Add Album" }
+            {loading ? "Adding....... " : "Add Album"}
           </button>
         </>
       )}

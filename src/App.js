@@ -1,12 +1,10 @@
-
-import './App.css';
-import { Album } from './components';
-
+import "./App.css";
+import { Album } from "./components";
 
 function App() {
   return (
     <div className="App">
-     <Album/>
+      <Album />
     </div>
   );
 }

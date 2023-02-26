@@ -10,7 +10,7 @@ const initialState = {
   EditPost: () => {},
   DeletePost: () => {},
   editedData: {},
-  setPosts: null,
+//   setPosts: null,
 };
 
 // Creating a post context to avoid prop Drilling
